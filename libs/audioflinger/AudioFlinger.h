@@ -62,6 +62,10 @@ public:
     static void instantiate();
 
     virtual     status_t    dump(int fd, const Vector<String16>& args);
+#ifdef PERF
+    virtual	void	startPerf(bool start){ bStartPerf = start; time_accu = (start == true)?0:time_accu;}
+    virtual	long	readtime(){return time_accu;}
+#endif
 
     // IAudioFlinger interface
     virtual sp<IAudioTrack> createTrack(
@@ -182,6 +186,12 @@ private:
     status_t dumpPermissionDenial(int fd, const Vector<String16>& args);
     status_t dumpClients(int fd, const Vector<String16>& args);
     status_t dumpInternals(int fd, const Vector<String16>& args);
+#ifdef PERF
+	struct timespec track_start;
+	struct timespec track_end;
+	long time_accu;
+	bool bStartPerf;
+#endif
 
     // --- Client ---
     class Client : public RefBase {

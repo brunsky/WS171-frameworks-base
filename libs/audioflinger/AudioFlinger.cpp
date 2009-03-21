@@ -16,6 +16,7 @@
 */
 
 
+#define LOG_NDEBUG 1
 #define LOG_TAG "AudioFlinger"
 //#define LOG_NDEBUG 0
 
@@ -128,6 +129,9 @@ AudioFlinger::AudioFlinger()
     mHardwareStatus = AUDIO_HW_IDLE;
     mAudioHardware = AudioHardwareInterface::create();
     mHardwareStatus = AUDIO_HW_INIT;
+#ifdef PERF
+    bStartPerf = false;
+#endif
     if (mAudioHardware->initCheck() == NO_ERROR) {
         // open 16-bit output stream for s/w mixer
         mHardwareStatus = AUDIO_HW_OUTPUT_OPEN;
@@ -1005,6 +1009,11 @@ bool AudioFlinger::MixerThread::threadLoop()
 #endif
 
     do {
+#ifdef PERF
+	if(bStartPerf){
+		clock_gettime(CLOCK_THREAD_CPUTIME_ID, &track_start);
+	}
+#endif
         enabledTracks = 0;
         { // scope for the AudioFlinger::mLock
         
@@ -1199,7 +1208,7 @@ bool AudioFlinger::MixerThread::threadLoop()
             standbyTime = temp + kStandbyTimeInNsecs;
             nsecs_t delta = temp - mLastWriteTime;
             if (delta > maxPeriod) {
-                LOGW("write blocked for %llu msecs", ns2ms(delta));
+                //LOGW("write blocked for %llu msecs", ns2ms(delta));
                 mNumDelayedWrites++;
             }
             sleepTime = kBufferRecoveryInUsecs;
@@ -1232,6 +1241,12 @@ bool AudioFlinger::MixerThread::threadLoop()
         // since we can't guarantee the destructors won't acquire that
         // same lock.
         tracksToRemove.clear();
+#ifdef PERF
+	if(bStartPerf){
+		clock_gettime(CLOCK_THREAD_CPUTIME_ID, &track_end);
+		time_accu += ((track_end.tv_sec - track_start.tv_sec)*1000000)+((track_end.tv_nsec-track_start.tv_nsec)/1000);
+	}
+#endif
     } while (true);
 
     return false;
@@ -1828,6 +1843,13 @@ bool AudioFlinger::MixerThread::Track::isReady() const {
 status_t AudioFlinger::MixerThread::Track::start()
 {
     LOGV("start(%d), calling thread %d for output %d", mName, IPCThreadState::self()->getCallingPid(), mMixerThread->mOutputType);
+#ifdef PERF
+    char value[PROPERTY_VALUE_MAX];
+    if (property_get("dump.audioflinger.perf", value, 0)){
+    	mAudioFlinger->startPerf(true);
+   	LOGV("PERF starting...%ld usec", mAudioFlinger->readtime());
+    }
+#endif
     Mutex::Autolock _l(mMixerThread->mAudioFlinger->mLock);
     mMixerThread->addTrack_l(this);
     return NO_ERROR;
@@ -1836,6 +1858,14 @@ status_t AudioFlinger::MixerThread::Track::start()
 void AudioFlinger::MixerThread::Track::stop()
 {
     LOGV("stop(%d), calling thread %d for output %d", mName, IPCThreadState::self()->getCallingPid(), mMixerThread->mOutputType);
+#ifdef PERF
+    char value[PROPERTY_VALUE_MAX];
+    if (property_get("dump.audioflinger.perf", value, 0)){
+    	mAudioFlinger->startPerf(false);
+	//TODO: write thread running time to file
+    	LOGV("PERF stop %ld usec", mAudioFlinger->readtime());
+    }
+#endif
     Mutex::Autolock _l(mMixerThread->mAudioFlinger->mLock);
     if (mState > STOPPED) {
         mState = STOPPED;

@@ -45,6 +45,8 @@ endif
 
 LOCAL_MODULE:= libaudioflinger
 
+LOCAL_CFLAGS += -DPERF
+
 ifeq ($(BOARD_HAVE_BLUETOOTH),true)
   LOCAL_SRC_FILES += A2dpAudioInterface.cpp
   LOCAL_SHARED_LIBRARIES += liba2dp
