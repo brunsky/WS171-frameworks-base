@@ -81,6 +81,8 @@ public:
     const Rect& getTransformedBounds() const {
         return mTransformedBounds;
     }
+    Rect getSurfaceRect();
+    int isOnTop();
 
 private:
     struct NativeBuffer {
@@ -188,6 +190,8 @@ private:
         virtual void unregisterBuffers();
         virtual sp<OverlayRef> createOverlay(
                 uint32_t w, uint32_t h, int32_t format);
+        virtual Rect getSurfaceRect();
+        virtual int isOnTop();
        void disown();
     private:
         LayerBuffer* getOwner() const {

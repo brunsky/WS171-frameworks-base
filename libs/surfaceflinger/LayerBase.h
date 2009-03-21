@@ -58,6 +58,7 @@ public:
     static const char* const typeID;
     virtual char const* getTypeID() const { return typeID; }
     virtual uint32_t getTypeInfo() const { return typeInfo; }
+    uint32_t    getIdentity() const { return mIdentity; }
     
     template<typename T>
     static T dynamicCast(LayerBase* base) {
@@ -299,7 +300,6 @@ public:
 
     virtual sp<Surface> getSurface() const;
    
-            uint32_t    getIdentity() const { return mIdentity; }
 
     class Surface : public BnSurface 
     {
@@ -339,6 +339,14 @@ public:
                 uint32_t w, uint32_t h, int32_t format) {
             return NULL;
         };
+        virtual Rect getSurfaceRect() {
+                Rect rect;
+                rect.left = rect.top = rect.right = rect.bottom = 0;
+                return rect;
+        };
+        virtual int isOnTop() {
+                return 0;
+        }
 
     private:
         ISurfaceFlingerClient::surface_data_t mParams;

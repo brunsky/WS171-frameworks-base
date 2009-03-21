@@ -140,6 +140,17 @@ bool LayerBuffer::transformed() const
     return false;
 }
 
+Rect LayerBuffer::getSurfaceRect()
+{
+    Rect rect = visibleBounds();
+    return rect;
+}
+int LayerBuffer::isOnTop()
+{
+    return mFlinger->isOnTop(this);
+}
+
+
 /**
  * This creates a "buffer" source for this surface
  */
@@ -266,6 +277,25 @@ void LayerBuffer::SurfaceBuffer::disown()
 {
     Mutex::Autolock _l(mLock);
     mOwner = 0;
+}
+Rect LayerBuffer::SurfaceBuffer::getSurfaceRect()
+{
+    Rect rect;
+    LayerBuffer* owner(getOwner());
+    if (owner)
+        rect = owner->getSurfaceRect();
+    return rect;
+   
+}
+
+int LayerBuffer::SurfaceBuffer::isOnTop()
+{
+    int ret = 0;
+    LayerBuffer* owner(getOwner());
+    if (owner)
+        ret = owner->isOnTop();
+    return ret;
+   
 }
 
 // ============================================================================

@@ -197,6 +197,7 @@ void SurfaceFlinger::init()
 {
     LOGI("SurfaceFlinger is starting");
 
+    mToppest[0] = mToppest[1] = 0;
     // debugging stuff...
     char value[PROPERTY_VALUE_MAX];
     property_get("debug.sf.showupdates", value, "0");
@@ -233,6 +234,25 @@ overlay_control_device_t* SurfaceFlinger::getOverlayEngine() const
     return graphicPlane(0).displayHardware().getOverlayEngine();
 }
 
+int SurfaceFlinger::isOnTop(LayerBase* layer)
+{
+    int ret = 0;
+    uint32_t id = layer->getIdentity();
+    if(id == mToppest[0] )
+    {
+        ret = 1;
+    }
+    else if( id == mToppest[1] )
+    {
+        Rect rect = layer->visibleBounds();
+        if( ((rect.right - rect.left) != mGraphicPlanes[0].displayHardware().getWidth())
+           || ((rect.bottom-rect.top) != mGraphicPlanes[0].displayHardware().getHeight()) )
+        {
+            ret = 1;
+        }
+    }
+    return ret;
+}
 sp<IMemory> SurfaceFlinger::getCblk() const
 {
     return mServerCblkMemory;
@@ -894,6 +914,9 @@ void SurfaceFlinger::composeSurfaces(const Region& dirty)
         LayerBase const * const layer = layers[i];
         const Region& visibleRegion(layer->visibleRegionScreen);
         if (!visibleRegion.isEmpty())  {
+            // we only record visible layers
+            mToppest[1] = mToppest[0];
+            mToppest[0] = layer->getIdentity();
             const Region clip(dirty.intersect(visibleRegion));
             if (!clip.isEmpty()) {
                 layer->draw(clip);

@@ -106,6 +106,26 @@ public:
         remote()->transact(CREATE_OVERLAY, data, &reply);
         return OverlayRef::readFromParcel(reply);
     }
+    virtual Rect getSurfaceRect()
+    {
+        Parcel data, reply;
+        data.writeInterfaceToken(ISurface::getInterfaceDescriptor());
+        remote()->transact(GET_SURFACERECT, data, &reply);
+        Rect rect;
+        rect.left = reply.readInt32();
+        rect.top = reply.readInt32();
+        rect.right = reply.readInt32();
+        rect.bottom = reply.readInt32();
+        return rect;
+    }
+    virtual int isOnTop()
+    {
+        Parcel data, reply;
+        data.writeInterfaceToken(ISurface::getInterfaceDescriptor());
+        remote()->transact(CHECK_ONTOP, data, &reply);
+        int ret  = reply.readInt32();
+        return ret;
+    }    
 };
 
 IMPLEMENT_META_INTERFACE(Surface, "android.ui.ISurface");
@@ -155,6 +175,21 @@ status_t BnSurface::onTransact(
             int f = data.readInt32();
             sp<OverlayRef> o = createOverlay(w, h, f);
             return OverlayRef::writeToParcel(reply, o);
+        } break;
+        case GET_SURFACERECT: {
+             CHECK_INTERFACE(ISurface, data, reply);
+             Rect rect = getSurfaceRect();
+             reply->writeInt32(rect.left);
+             reply->writeInt32(rect.top);
+             reply->writeInt32(rect.right);
+             reply->writeInt32(rect.bottom);
+             return NO_ERROR; 
+        } break;
+        case CHECK_ONTOP: {
+             CHECK_INTERFACE(ISurface, data, reply);
+             int ret = isOnTop();
+             reply->writeInt32(ret);
+             return NO_ERROR; 
         } break;
         default:
             return BBinder::onTransact(code, data, reply, flags);

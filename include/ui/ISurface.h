@@ -24,6 +24,7 @@
 #include <utils/IInterface.h>
 #include <utils/RefBase.h>
 #include <ui/PixelFormat.h>
+#include <ui/Rect.h>
 
 #include <hardware/hardware.h>
 
@@ -42,6 +43,8 @@ protected:
         UNREGISTER_BUFFERS,
         POST_BUFFER, // one-way transaction
         CREATE_OVERLAY,
+	    GET_SURFACERECT,
+	    CHECK_ONTOP,
     };
 
 public: 
@@ -85,6 +88,11 @@ public:
     
     virtual sp<OverlayRef> createOverlay(
             uint32_t w, uint32_t h, int32_t format) = 0;
+    // get surface visible region
+    virtual Rect getSurfaceRect() = 0;
+
+    // check the surface is on top(visible) or not
+    virtual int isOnTop() = 0;
 };
 
 // ----------------------------------------------------------------------------

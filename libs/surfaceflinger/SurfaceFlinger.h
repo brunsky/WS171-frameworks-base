@@ -159,6 +159,7 @@ public:
 
     virtual status_t dump(int fd, const Vector<String16>& args);
 
+    int isOnTop(LayerBase* layer); 
     // ISurfaceComposer interface
     virtual sp<ISurfaceFlingerClient>   createConnection();
     virtual sp<IMemory>                 getCblk() const;
@@ -390,6 +391,8 @@ private:
 
    // only written in the main thread, only read in other threads
    volatile     int32_t                     mSecureFrameBuffer;
+   // record the topest 2 layer id
+                uint32_t                    mToppest[2];
 };
 
 // ---------------------------------------------------------------------------
