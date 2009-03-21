@@ -52,6 +52,8 @@ public class MobileDataStateTracker extends NetworkStateTracker {
     private static final String[] sDnsPropNames = {
           "net.rmnet0.dns1",
           "net.rmnet0.dns2",
+          "net.ccinet0.dns1",
+          "net.ccinet0.dns2",
           "net.eth0.dns1",
           "net.eth0.dns2",
           "net.eth0.dns3",
