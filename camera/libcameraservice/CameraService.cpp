@@ -479,7 +479,8 @@ status_t CameraService::Client::startPreviewMode()
               transform = ISurface::BufferHeap::ROT_90;
             }
             ISurface::BufferHeap buffers(w, h, w, h,
-                                         PIXEL_FORMAT_YCbCr_420_SP,
+    	                                 /*PIXEL_FORMAT_YCbCr_420_SP,*/
+	   									 PIXEL_FORMAT_RGB_565,
                                          transform,
                                          0,
                                          mHardware->getPreviewHeap());
@@ -766,7 +767,8 @@ void CameraService::Client::shutterCallback(void *user)
             transform = ISurface::BufferHeap::ROT_90;
         }
         ISurface::BufferHeap buffers(w, h, w, h,
-            PIXEL_FORMAT_YCbCr_420_SP, transform, 0, client->mHardware->getRawHeap());
+            /*PIXEL_FORMAT_YCbCr_420_SP*/
+            PIXEL_FORMAT_RGB_565, transform, 0, client->mHardware->getRawHeap());
 
         client->mSurface->registerBuffers(buffers);
     }
