@@ -1010,8 +1010,8 @@ bool AudioFlinger::MixerThread::threadLoop()
 
     do {
 #ifdef PERF
-	if(bStartPerf){
-		clock_gettime(CLOCK_THREAD_CPUTIME_ID, &track_start);
+	if(mAudioFlinger->bStartPerf){
+		clock_gettime(CLOCK_THREAD_CPUTIME_ID, &mAudioFlinger->track_start);
 	}
 #endif
         enabledTracks = 0;
@@ -1242,9 +1242,10 @@ bool AudioFlinger::MixerThread::threadLoop()
         // same lock.
         tracksToRemove.clear();
 #ifdef PERF
-	if(bStartPerf){
-		clock_gettime(CLOCK_THREAD_CPUTIME_ID, &track_end);
-		time_accu += ((track_end.tv_sec - track_start.tv_sec)*1000000)+((track_end.tv_nsec-track_start.tv_nsec)/1000);
+	if(mAudioFlinger->bStartPerf){
+		clock_gettime(CLOCK_THREAD_CPUTIME_ID, &mAudioFlinger->track_end);
+		mAudioFlinger->time_accu += ((mAudioFlinger->track_end.tv_sec - mAudioFlinger->track_start.tv_sec)*1000000)
+			+ ((mAudioFlinger->track_end.tv_nsec - mAudioFlinger->track_start.tv_nsec)/1000);
 	}
 #endif
     } while (true);
@@ -1846,8 +1847,8 @@ status_t AudioFlinger::MixerThread::Track::start()
 #ifdef PERF
     char value[PROPERTY_VALUE_MAX];
     if (property_get("dump.audioflinger.perf", value, 0)){
-    	mAudioFlinger->startPerf(true);
-   	LOGV("PERF starting...%ld usec", mAudioFlinger->readtime());
+    	mMixerThread->mAudioFlinger->startPerf(true);
+   	LOGV("PERF starting...%ld usec", mMixerThread->mAudioFlinger->readtime());
     }
 #endif
     Mutex::Autolock _l(mMixerThread->mAudioFlinger->mLock);
@@ -1861,9 +1862,9 @@ void AudioFlinger::MixerThread::Track::stop()
 #ifdef PERF
     char value[PROPERTY_VALUE_MAX];
     if (property_get("dump.audioflinger.perf", value, 0)){
-    	mAudioFlinger->startPerf(false);
+    	mMixerThread->mAudioFlinger->startPerf(false);
 	//TODO: write thread running time to file
-    	LOGV("PERF stop %ld usec", mAudioFlinger->readtime());
+    	LOGV("PERF stop %ld usec",mMixerThread->mAudioFlinger->readtime());
     }
 #endif
     Mutex::Autolock _l(mMixerThread->mAudioFlinger->mLock);
