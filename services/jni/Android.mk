@@ -22,6 +22,10 @@ LOCAL_SHARED_LIBRARIES := \
 	libutils \
 	libui
 
+ifeq ($(strip $(USE_MARVELL_STUB_AC)),true)
+	LOCAL_CFLAGS += -DMARVELL_STUB_AC
+endif
+
 ifeq ($(TARGET_SIMULATOR),true)
 ifeq ($(TARGET_OS),linux)
 ifeq ($(TARGET_ARCH),x86)

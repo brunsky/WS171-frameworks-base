@@ -173,7 +173,11 @@ static void setIntField(JNIEnv* env, jobject obj, const char* path, jfieldID fie
 
 static void android_server_BatteryService_update(JNIEnv* env, jobject obj)
 {
+#ifndef MARVELL_STUB_AC
     setBooleanField(env, obj, AC_ONLINE_PATH, gFieldIds.mAcOnline);
+#else
+    env->SetBooleanField(obj, gFieldIds.mAcOnline, true);
+#endif
     setBooleanField(env, obj, USB_ONLINE_PATH, gFieldIds.mUsbOnline);
     setBooleanField(env, obj, BATTERY_PRESENT_PATH, gFieldIds.mBatteryPresent);
     
@@ -183,10 +187,12 @@ static void android_server_BatteryService_update(JNIEnv* env, jobject obj)
     
     const int SIZE = 128;
     char buf[SIZE];
-    
+#ifndef MARVELL_STUB_AC    
     if (readFromFile(BATTERY_STATUS_PATH, buf, SIZE) > 0)
         env->SetIntField(obj, gFieldIds.mBatteryStatus, getBatteryStatus(buf));
-    
+#else
+    env->SetIntField(obj, gFieldIds.mBatteryStatus, gConstants.statusCharging);
+#endif    
     if (readFromFile(BATTERY_HEALTH_PATH, buf, SIZE) > 0)
         env->SetIntField(obj, gFieldIds.mBatteryHealth, getBatteryHealth(buf));
 
