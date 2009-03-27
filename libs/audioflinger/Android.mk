@@ -45,7 +45,9 @@ endif
 
 LOCAL_MODULE:= libaudioflinger
 
+ifeq ($(strip $(USE_MARVELL_AUDIO_PERF)),true)
 LOCAL_CFLAGS += -DPERF
+endif
 
 ifeq ($(BOARD_HAVE_BLUETOOTH),true)
   LOCAL_SRC_FILES += A2dpAudioInterface.cpp
