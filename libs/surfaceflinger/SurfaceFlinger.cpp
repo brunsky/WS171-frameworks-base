@@ -238,6 +238,7 @@ int SurfaceFlinger::isOnTop(LayerBase* layer)
 {
     int ret = 0;
     uint32_t id = layer->getIdentity();
+    Mutex::Autolock _l(mTopLock);
     if(id == mToppest[0] )
     {
         ret = 1;
@@ -910,6 +911,7 @@ void SurfaceFlinger::composeSurfaces(const Region& dirty)
     const LayerVector& drawingLayers(mDrawingState.layersSortedByZ);
     const size_t count = drawingLayers.size();
     LayerBase const* const* const layers = drawingLayers.array();
+    Mutex::Autolock _l(mTopLock);
     for (size_t i=0 ; i<count ; ++i) {
         LayerBase const * const layer = layers[i];
         const Region& visibleRegion(layer->visibleRegionScreen);

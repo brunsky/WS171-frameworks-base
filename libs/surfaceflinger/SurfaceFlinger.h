@@ -393,6 +393,7 @@ private:
    volatile     int32_t                     mSecureFrameBuffer;
    // record the topest 2 layer id
                 uint32_t                    mToppest[2];
+		Mutex			    mTopLock;
 };
 
 // ---------------------------------------------------------------------------
