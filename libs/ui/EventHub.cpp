@@ -456,7 +456,13 @@ int EventHub::open_device(const char *deviceName)
     fd = open(deviceName, O_RDWR);
     if(fd < 0) {
         LOGE("could not open %s, %s\n", deviceName, strerror(errno));
-        return -1;
+     	LOGE("try again...wait...");
+	usleep(1000);
+	fd = open(deviceName, O_RDWR);
+	if(fd < 0) {
+		LOGE("could not open %s, %s. give up :(\n", deviceName, strerror(errno));
+        	return -1;
+	}
     }
 
     if(ioctl(fd, EVIOCGVERSION, &version)) {
