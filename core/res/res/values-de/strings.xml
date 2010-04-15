@@ -93,16 +93,16 @@
     <string name="contentServiceTooManyDeletesNotificationDesc">"Zu viele <xliff:g id="CONTENT_TYPE">%s</xliff:g> gelöscht."</string>
     <string name="low_memory">"Telefonspeicher ist voll! Löschen Sie Dateien, um Speicherplatz freizugeben."</string>
     <string name="me">"Eigene"</string>
-    <string name="power_dialog">"Telefonoptionen"</string>
+    <string name="power_dialog">"Gerät-Optionen"</string>
     <string name="silent_mode">"Lautlos-Modus"</string>
     <string name="turn_on_radio">"Funk einschalten"</string>
     <string name="turn_off_radio">"Funk ausschalten"</string>
     <string name="screen_lock">"Bildschirmsperre"</string>
     <string name="power_off">"Ausschalten"</string>
     <string name="shutdown_progress">"Herunterfahren..."</string>
-    <string name="shutdown_confirm">"Ihr Telefon wird heruntergefahren."</string>
+    <string name="shutdown_confirm">"Ihr Gerät wird heruntergefahren."</string>
     <string name="no_recent_tasks">"Keine neuen Anwendungen."</string>
-    <string name="global_actions">"Telefonoptionen"</string>
+    <string name="global_actions">"Gerät-Optionen"</string>
     <string name="global_action_lock">"Bildschirmsperre"</string>
     <string name="global_action_power_off">"Ausschalten"</string>
     <string name="global_action_toggle_silent_mode">"Lautlos"</string>
@@ -390,7 +390,7 @@
     <string name="keyguard_password_wrong_pin_code">"Falscher PIN-Code!"</string>
     <string name="keyguard_label_text">"Drücken Sie zum Entsperren die Menütaste und dann auf \"0\"."</string>
     <string name="emergency_call_dialog_number_for_display">"Notrufnummer"</string>
-    <string name="lockscreen_carrier_default">"(kein Dienst)"</string>
+    <string name="lockscreen_carrier_default">"   "</string>
     <string name="lockscreen_screen_locked">"Display gesperrt."</string>
     <string name="lockscreen_instructions_when_pattern_enabled">"Drücken Sie die Menütaste, um das Telefon zu entsperren oder einen Notruf zu tätigen."</string>
     <string name="lockscreen_instructions_when_pattern_disabled">"Zum Entsperren die Menütaste drücken"</string>
@@ -584,7 +584,7 @@
     <string name="wait">"Warten"</string>
     <string name="debug">"Fehler suchen"</string>
     <string name="sendText">"Aktion für Text auswählen"</string>
-    <string name="volume_ringtone">"Klingeltonlautstärke"</string>
+    <string name="volume_ringtone">"Lautstärke"</string>
     <string name="volume_music">"Medienlautstärke"</string>
     <string name="volume_music_hint_playing_through_bluetooth">"Wiedergabe durch Bluetooth"</string>
     <string name="volume_call">"Hörerlautstärke"</string>
@@ -618,7 +618,7 @@
     <string name="perms_show_all"><b>"Alle anzeigen"</b></string>
     <string name="googlewebcontenthelper_loading">"Ladevorgang läuft..."</string>
     <string name="usb_storage_title">"USB-Verbindung"</string>
-    <string name="usb_storage_message">"Sie haben Ihr Telefon über einen USB-Anschluss mit Ihrem Computer verbunden. Wählen Sie \"Bereitstellen\", wenn Sie Dateien auf Ihren Computer oder die SD-Karte Ihres Telefons kopieren möchten."</string>
+    <string name="usb_storage_message">"Sie haben Ihr gerät über einen USB-Anschluss mit Ihrem Computer verbunden. Wählen Sie \"Bereitstellen\", wenn Sie Dateien auf Ihren Computer oder die SD-Karte Ihres geräts kopieren möchten."</string>
     <string name="usb_storage_button_mount">"Bereitstellen"</string>
     <string name="usb_storage_button_unmount">"Nicht bereitstellen"</string>
     <string name="usb_storage_error_message">"Bei der Verwendung Ihrer SD-Karte als USB-Speicher ist ein Problem aufgetreten."</string>

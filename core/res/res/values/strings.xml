@@ -212,7 +212,7 @@
 
     <!-- Power Dialog --> <skip />
     <!-- Title for the Phone Options dialog to lock the screen, turn off the phone etc. -->
-    <string name="power_dialog">Phone options</string>
+    <string name="power_dialog">Device options</string>
     <!-- Button to turn on silent mode, within the Phone Options dialog -->
     <string name="silent_mode">Silent mode</string>
     <!-- Button to turn on the radio, within the Phone Options dialog -->
@@ -228,13 +228,13 @@
     <string name="shutdown_progress">Shutting down\u2026</string>
 
     <!-- Shutdown Confirmation Dialog.  When the user chooses to power off the phone, there will be a confirmation dialog.  This is the message. -->
-    <string name="shutdown_confirm">Your phone will shut down.</string>
+    <string name="shutdown_confirm">Your device will shut down.</string>
 
     <!-- Recent Tasks dialog -->
     <string name="no_recent_tasks">No recent applications.</string>
 
     <!-- Title of the Global Actions Dialog -->
-    <string name="global_actions">Phone options</string>
+    <string name="global_actions">Device options</string>
 
     <!-- label for item that locks the phone in the phone options dialog -->
     <string name="global_action_lock">Screen lock</string>
@@ -1114,7 +1114,7 @@
                                           --> <skip />
 
     <!-- On the keyguard screen, it shows the carrier the phone is connected to.  This is displayed if the phone is not connected to a carrier.-->
-    <string name="lockscreen_carrier_default">(No service)</string>
+    <string name="lockscreen_carrier_default">  </string>
 
     <!-- Shown in the lock screen to tell the user that the screen is locked. -->
     <string name="lockscreen_screen_locked">Screen locked.</string>
@@ -1580,7 +1580,7 @@
     <string name="sendText">Select an action for text</string>
 
     <!-- Title of the dialog where the user is adjusting the phone ringer volume -->
-    <string name="volume_ringtone">Ringer volume</string>
+    <string name="volume_ringtone">Volume</string>
     <!-- Title of the dialog where the user is adjusting the music volume -->
     <string name="volume_music">Media volume</string>
     <!-- Hint shown in the volume toast to inform the user that the media audio is playing through Bluetooth. -->
@@ -1657,7 +1657,7 @@
     <!-- See USB_STORAGE.  USB_STORAGE_DIALOG:  After the user selects the notification, a dialog is shown asking if he wants to mount.  This is the title. -->
     <string name="usb_storage_title">USB connected</string>
     <!-- See USB_STORAGE.    This is the message. -->
-    <string name="usb_storage_message">You have connected your phone to your computer via USB. Select \"Mount\" if you want to copy files between your computer and your phone\'s SD card.</string>
+    <string name="usb_storage_message">You have connected your device to your computer via USB. Select \"Mount\" if you want to copy files between your computer and your device\'s SD card.</string>
     <!-- See USB_STORAGE.    This is the button text to mount the phone on the computer. -->
     <string name="usb_storage_button_mount">Mount</string>
     <!-- See USB_STORAGE.   This is the button text to ignore the plugging in of the phone.. -->

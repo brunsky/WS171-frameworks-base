@@ -1,6 +1,6 @@
 #ifndef SOURCEPOS_H
 #define SOURCEPOS_H
-
+#include <cstdio>
 #include <string>
 
 using namespace std;

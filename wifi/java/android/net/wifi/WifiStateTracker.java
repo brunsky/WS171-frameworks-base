@@ -962,7 +962,7 @@ public class WifiStateTracker extends NetworkStateTracker {
                     setNotificationVisible(false, 0, false, 0);
                     boolean wasDisconnectPending = mDisconnectPending;
                     cancelDisconnect();
-                    if (!TextUtils.equals(mWifiInfo.getSSID(), mLastSsid)) {
+                    /*if (!TextUtils.equals(mWifiInfo.getSSID(), mLastSsid))*/ {
                         /*
                          * The connection is fully configured as far as link-level
                          * connectivity is concerned, but we may still need to obtain
@@ -974,6 +974,7 @@ public class WifiStateTracker extends NetworkStateTracker {
                             handleDisconnectedState(DetailedState.DISCONNECTED);
                             setDetailedStateInternal(saveState);
                         }
+                        mHaveIPAddress = false;
                         configureInterface();
                     }
                     mLastBssid = result.BSSID;
@@ -1688,7 +1689,7 @@ public class WifiStateTracker extends NetworkStateTracker {
                         mCancelCallback = false;
                     }
                     Log.d(TAG, "DhcpHandler: DHCP request started");
-                    if (NetworkUtils.runDhcp(mInterfaceName, mDhcpInfo)) {
+                    if (WifiNative.doDhcpRequest(mDhcpInfo)) {
                         event = EVENT_INTERFACE_CONFIGURATION_SUCCEEDED;
                         if (LOCAL_LOGD) Log.v(TAG, "DhcpHandler: DHCP request succeeded");
                     } else {

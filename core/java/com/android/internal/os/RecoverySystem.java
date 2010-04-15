@@ -26,6 +26,9 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Iterator;
 import java.util.Map;
+import java.io.OutputStream;
+import android.os.SystemClock;
+
 
 /**
  * Utility class for interacting with the Android recovery partition.
@@ -80,7 +83,7 @@ public class RecoverySystem {
      * @throws IOException if something goes wrong.
      */
     private static void bootCommand(String arg) throws IOException {
-        RECOVERY_DIR.mkdirs();  // In case we need it
+        /*RECOVERY_DIR.mkdirs();  // In case we need it
         COMMAND_FILE.delete();  // In case it's not writable
         LOG_FILE.delete();
 
@@ -90,7 +93,25 @@ public class RecoverySystem {
             command.write("\n");
         } finally {
             command.close();
+        }*/
+		try {
+			String command = String.format("nwcmd %s\n", arg);
+			Process p = Runtime.getRuntime().exec("sh");
+			OutputStream writer = p.getOutputStream();
+			writer.write(command.getBytes("ASCII"));
+			writer.flush();
+			command = "sync\n";
+			writer.write(command.getBytes("ASCII"));
+			command = "exit\n";
+			writer.write(command.getBytes("ASCII"));
+			writer.flush();
+			writer.close();
         }
+		catch (Exception e)	{
+			Log.d(TAG, e.toString());
+		}
+		SystemClock.sleep(500);
+	
 
         // Having written the command file, go ahead and reboot
         Power.reboot("recovery");

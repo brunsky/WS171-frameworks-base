@@ -1,6 +1,6 @@
 #ifndef XMB_H
 #define XMB_H
-
+#include <cstdio>
 #include <string>
 #include <vector>
 

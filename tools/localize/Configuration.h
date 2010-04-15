@@ -2,7 +2,7 @@
 #define CONFIGURATION_H
 
 #include <string>
-
+#include <cstdio>
 using namespace std;
 
 struct Configuration

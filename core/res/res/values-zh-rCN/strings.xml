@@ -93,16 +93,16 @@
     <string name="contentServiceTooManyDeletesNotificationDesc">"太多<xliff:g id="CONTENT_TYPE">%s</xliff:g>删除项。"</string>
     <string name="low_memory">"手机存储空间已满！请删除一些文件来腾出空间。"</string>
     <string name="me">"我"</string>
-    <string name="power_dialog">"手机选项"</string>
+    <string name="power_dialog">"系统选项"</string>
     <string name="silent_mode">"静音模式"</string>
     <string name="turn_on_radio">"打开无线电"</string>
     <string name="turn_off_radio">"关闭无线电"</string>
     <string name="screen_lock">"屏幕锁定"</string>
     <string name="power_off">"关机"</string>
     <string name="shutdown_progress">"正在关机..."</string>
-    <string name="shutdown_confirm">"您的手机会关闭。"</string>
+    <string name="shutdown_confirm">"您的系统会关闭。"</string>
     <string name="no_recent_tasks">"无最近的应用程序。"</string>
-    <string name="global_actions">"手机选项"</string>
+    <string name="global_actions">"系统选项"</string>
     <string name="global_action_lock">"屏幕锁定"</string>
     <string name="global_action_power_off">"关机"</string>
     <string name="global_action_toggle_silent_mode">"静音模式"</string>
@@ -390,7 +390,7 @@
     <string name="keyguard_password_wrong_pin_code">"PIN 码不正确！"</string>
     <string name="keyguard_label_text">"要解锁，请先按 MENU 再按 0。"</string>
     <string name="emergency_call_dialog_number_for_display">"紧急电话号码"</string>
-    <string name="lockscreen_carrier_default">"（无服务）"</string>
+    <string name="lockscreen_carrier_default">"    "</string>
     <string name="lockscreen_screen_locked">"屏幕已锁定。"</string>
     <string name="lockscreen_instructions_when_pattern_enabled">"按 MENU 解锁或拨打紧急电话。"</string>
     <string name="lockscreen_instructions_when_pattern_disabled">"按 MENU 解锁。"</string>
@@ -584,7 +584,7 @@
     <string name="wait">"等待"</string>
     <string name="debug">"调试"</string>
     <string name="sendText">"选择要对文字执行的操作"</string>
-    <string name="volume_ringtone">"铃声音量"</string>
+    <string name="volume_ringtone">"音量"</string>
     <string name="volume_music">"媒体音量"</string>
     <string name="volume_music_hint_playing_through_bluetooth">"通过蓝牙播放"</string>
     <string name="volume_call">"通话音量"</string>
@@ -618,7 +618,7 @@
     <string name="perms_show_all"><b>"全部显示"</b></string>
     <string name="googlewebcontenthelper_loading">"正在载入..."</string>
     <string name="usb_storage_title">"USB 已连接"</string>
-    <string name="usb_storage_message">"您已通过 USB 将手机连接至计算机。如果要在计算机和手机的 SD 卡之间复制文件，请选择“安装”。"</string>
+    <string name="usb_storage_message">"您已通过USB将装置连接至计算机。如果要在计算机与装置的SD卡之间复制文件，请选择"安装"。。"</string>
     <string name="usb_storage_button_mount">"安装"</string>
     <string name="usb_storage_button_unmount">"不安装"</string>
     <string name="usb_storage_error_message">"使用 SD 卡进行 USB 存储时出现问题。"</string>

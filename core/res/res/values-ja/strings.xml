@@ -93,16 +93,16 @@
     <string name="contentServiceTooManyDeletesNotificationDesc">"<xliff:g id="CONTENT_TYPE">%s</xliff:g>での削除が多すぎます。"</string>
     <string name="low_memory">"電話のメモリがいっぱいです。ファイルを削除してメモリを解放してください。"</string>
     <string name="me">"自分"</string>
-    <string name="power_dialog">"携帯電話オプション"</string>
+    <string name="power_dialog">"デバイスオプション"</string>
     <string name="silent_mode">"マナーモード"</string>
     <string name="turn_on_radio">"ワイヤレス接続をONにする"</string>
     <string name="turn_off_radio">"ワイヤレス接続をOFFにする"</string>
     <string name="screen_lock">"画面をロック"</string>
     <string name="power_off">"電源を切る"</string>
     <string name="shutdown_progress">"シャットダウン中..."</string>
-    <string name="shutdown_confirm">"携帯電話の電源を切ります。"</string>
+    <string name="shutdown_confirm">"デバイスはシャットダウンします。"</string>
     <string name="no_recent_tasks">"最近使ったアプリケーションはありません。"</string>
-    <string name="global_actions">"携帯電話オプション"</string>
+    <string name="global_actions">"デバイスオプション"</string>
     <string name="global_action_lock">"画面ロック"</string>
     <string name="global_action_power_off">"電源を切る"</string>
     <string name="global_action_toggle_silent_mode">"マナーモード"</string>
@@ -390,7 +390,7 @@
     <string name="keyguard_password_wrong_pin_code">"PINコードが正しくありません。"</string>
     <string name="keyguard_label_text">"MENU、0キーでロック解除"</string>
     <string name="emergency_call_dialog_number_for_display">"緊急通報番号"</string>
-    <string name="lockscreen_carrier_default">"(通信サービスなし)"</string>
+    <string name="lockscreen_carrier_default">"   "</string>
     <string name="lockscreen_screen_locked">"画面ロック中"</string>
     <string name="lockscreen_instructions_when_pattern_enabled">"MENUキーでロック解除(または緊急通報)"</string>
     <string name="lockscreen_instructions_when_pattern_disabled">"MENUキーでロック解除"</string>
@@ -584,7 +584,7 @@
     <string name="wait">"待機"</string>
     <string name="debug">"デバッグ"</string>
     <string name="sendText">"アプリケーションを選択"</string>
-    <string name="volume_ringtone">"着信音量"</string>
+    <string name="volume_ringtone">"音量"</string>
     <string name="volume_music">"メディアの音量"</string>
     <string name="volume_music_hint_playing_through_bluetooth">"Bluetooth経由で再生中です"</string>
     <string name="volume_call">"通話音量"</string>
@@ -618,7 +618,7 @@
     <string name="perms_show_all"><b>"すべて表示"</b></string>
     <string name="googlewebcontenthelper_loading">"読み込み中..."</string>
     <string name="usb_storage_title">"USB接続"</string>
-    <string name="usb_storage_message">"USB経由で携帯電話をコンピュータに接続しました。コンピュータと携帯電話のSDカード間でファイルをコピーするには、[マウント]を選択します。"</string>
+    <string name="usb_storage_message">"USB経由で端末をコンピュータに接続しました。コンピュータと端末のSDカード間でファイルをコピーするには、[マウント]を選択します。"</string>
     <string name="usb_storage_button_mount">"マウント"</string>
     <string name="usb_storage_button_unmount">"マウントしない"</string>
     <string name="usb_storage_error_message">"USBメモリにSDカードを使用する際に問題が発生しました。"</string>

@@ -177,6 +177,8 @@ LOCAL_SHARED_LIBRARIES += \
   LOCAL_CFLAGS += -I$(LOCAL_PATH)/../../../../bionic/libc/private
 endif
 
+LOCAL_STATIC_LIBRARIES += libwifi
+
 LOCAL_LDLIBS += -lpthread -ldl
 
 ifeq ($(TARGET_SIMULATOR),true)

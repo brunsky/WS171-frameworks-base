@@ -69,13 +69,6 @@
                   android:text="@android:string/lockscreen_missing_sim_instructions"
                   android:textAppearance="?android:attr/textAppearanceSmall"/>
 
-        <!-- spacer after carrier info / sim messages -->
-        <View
-            android:layout_width="fill_parent"
-            android:layout_height="1dip"
-            android:layout_marginTop="8dip"
-            android:background="@android:drawable/divider_horizontal_dark"/>
-
         <!-- time and date -->
         <TextView android:id="@+id/time"
                   android:layout_width="fill_parent"

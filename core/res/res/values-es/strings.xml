@@ -93,16 +93,16 @@
     <string name="contentServiceTooManyDeletesNotificationDesc">"Demasiadas eliminaciones de <xliff:g id="CONTENT_TYPE">%s</xliff:g>"</string>
     <string name="low_memory">"Se ha agotado el espacio de almacenamiento del teléfono. Elimina algunos archivos para liberar espacio."</string>
     <string name="me">"Yo"</string>
-    <string name="power_dialog">"Opciones del teléfono"</string>
+    <string name="power_dialog">"Device Options"</string>
     <string name="silent_mode">"Modo silencio"</string>
     <string name="turn_on_radio">"Activar conexión inalámbrica"</string>
     <string name="turn_off_radio">"Desactivar función inalámbrica"</string>
     <string name="screen_lock">"Bloqueo de pantalla"</string>
     <string name="power_off">"Apagar"</string>
     <string name="shutdown_progress">"Apagando..."</string>
-    <string name="shutdown_confirm">"El teléfono se apagará."</string>
+    <string name="shutdown_confirm">"Su dispositivo se apagará."</string>
     <string name="no_recent_tasks">"No hay aplicaciones recientes"</string>
-    <string name="global_actions">"Opciones del teléfono"</string>
+    <string name="global_actions">"Device Options"</string>
     <string name="global_action_lock">"Bloqueo de pantalla"</string>
     <string name="global_action_power_off">"Apagar"</string>
     <string name="global_action_toggle_silent_mode">"Modo silencio"</string>
@@ -390,7 +390,7 @@
     <string name="keyguard_password_wrong_pin_code">"El código PIN es incorrecto."</string>
     <string name="keyguard_label_text">"Para desbloquear el teléfono, pulsa la tecla de menú y, a continuación, pulsa 0."</string>
     <string name="emergency_call_dialog_number_for_display">"Número de emergencia"</string>
-    <string name="lockscreen_carrier_default">"(Sin cobertura)"</string>
+    <string name="lockscreen_carrier_default">"   "</string>
     <string name="lockscreen_screen_locked">"Pantalla bloqueada"</string>
     <string name="lockscreen_instructions_when_pattern_enabled">"Pulsa la tecla de menú para desbloquear el teléfono o realizar una llamada de emergencia."</string>
     <string name="lockscreen_instructions_when_pattern_disabled">"Pulsa la tecla de menú para desbloquear la pantalla."</string>
@@ -584,7 +584,7 @@
     <string name="wait">"Esperar"</string>
     <string name="debug">"Depurar"</string>
     <string name="sendText">"Seleccionar la opción para compartir"</string>
-    <string name="volume_ringtone">"Volumen del timbre"</string>
+    <string name="volume_ringtone">"Volumen"</string>
     <string name="volume_music">"Volumen multimedia"</string>
     <string name="volume_music_hint_playing_through_bluetooth">"Reproduciendo a través de Bluetooth"</string>
     <string name="volume_call">"Volumen de la llamada"</string>
@@ -618,7 +618,7 @@
     <string name="perms_show_all"><b>"Mostrar todos"</b></string>
     <string name="googlewebcontenthelper_loading">"Cargando..."</string>
     <string name="usb_storage_title">"Conectado por USB"</string>
-    <string name="usb_storage_message">"Has conectado el teléfono al equipo mediante USB. Selecciona \"Activar\" si deseas copiar archivos entre el equipo y la tarjeta SD del teléfono."</string>
+    <string name="usb_storage_message">"Has conectado el dispositivo al equipo mediante USB. Selecciona \"Activar\" si deseas copiar archivos entre el equipo y la tarjeta SD del dispositivo."</string>
     <string name="usb_storage_button_mount">"Activar"</string>
     <string name="usb_storage_button_unmount">"No activar"</string>
     <string name="usb_storage_error_message">"Se ha producido un problema al intentar utilizar la tarjeta SD para el almacenamiento USB."</string>

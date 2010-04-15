@@ -93,16 +93,16 @@
     <string name="contentServiceTooManyDeletesNotificationDesc">"同時刪除太多 <xliff:g id="CONTENT_TYPE">%s</xliff:g>。"</string>
     <string name="low_memory">"手機儲存空間已滿！請刪除一些檔案增加空間。"</string>
     <string name="me">"我"</string>
-    <string name="power_dialog">"電話選項"</string>
+    <string name="power_dialog">"系統選項"</string>
     <string name="silent_mode">"靜音模式"</string>
     <string name="turn_on_radio">"開啟無線網路"</string>
     <string name="turn_off_radio">"關閉無線網路"</string>
     <string name="screen_lock">"螢幕鎖定"</string>
     <string name="power_off">"關機"</string>
     <string name="shutdown_progress">"關機中..."</string>
-    <string name="shutdown_confirm">"手機即將關機。"</string>
+    <string name="shutdown_confirm">"系統即將關機。"</string>
     <string name="no_recent_tasks">"最近沒有存取應用程式。"</string>
-    <string name="global_actions">"電話選項"</string>
+    <string name="global_actions">"系統選項"</string>
     <string name="global_action_lock">"螢幕鎖定"</string>
     <string name="global_action_power_off">"關機"</string>
     <string name="global_action_toggle_silent_mode">"靜音模式"</string>
@@ -390,7 +390,7 @@
     <string name="keyguard_password_wrong_pin_code">"PIN 碼錯誤！"</string>
     <string name="keyguard_label_text">"如要解鎖，請按 Menu 鍵，然後按 0。"</string>
     <string name="emergency_call_dialog_number_for_display">"緊急電話號碼"</string>
-    <string name="lockscreen_carrier_default">"(沒有服務)"</string>
+    <string name="lockscreen_carrier_default">"   "</string>
     <string name="lockscreen_screen_locked">"螢幕已鎖定。"</string>
     <string name="lockscreen_instructions_when_pattern_enabled">"按下 [選單] 解鎖或撥打緊急電話。"</string>
     <string name="lockscreen_instructions_when_pattern_disabled">"按下 Menu 鍵解鎖。"</string>
@@ -584,7 +584,7 @@
     <string name="wait">"等待"</string>
     <string name="debug">"偵錯"</string>
     <string name="sendText">"訊息傳送方式"</string>
-    <string name="volume_ringtone">"鈴聲音量"</string>
+    <string name="volume_ringtone">"音量"</string>
     <string name="volume_music">"媒體音量"</string>
     <string name="volume_music_hint_playing_through_bluetooth">"透過藍牙播放"</string>
     <string name="volume_call">"來電音量"</string>
@@ -618,7 +618,7 @@
     <string name="perms_show_all"><b>"顯示全部"</b></string>
     <string name="googlewebcontenthelper_loading">"載入中..."</string>
     <string name="usb_storage_title">"USB 已連接"</string>
-    <string name="usb_storage_message">"已透過 USB 連接手機與電腦。如要從電腦或 SD 卡複製檔案，請選取 [掛載]。"</string>
+    <string name="usb_storage_message">"已透過 USB 連接裝置與電腦。如要從電腦或 SD 卡複製檔案，請選取 [掛載]。"</string>
     <string name="usb_storage_button_mount">"掛載"</string>
     <string name="usb_storage_button_unmount">"不要掛載"</string>
     <string name="usb_storage_error_message">"把 SD 卡當成 USB 儲存裝置時發生問題。"</string>

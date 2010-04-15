@@ -93,16 +93,16 @@
     <string name="contentServiceTooManyDeletesNotificationDesc">"Trop de contenus supprimés (<xliff:g id="CONTENT_TYPE">%s</xliff:g>)."</string>
     <string name="low_memory">"La mémoire du téléphone est pleine ! Supprimez des fichiers pour libérer de l\'espace."</string>
     <string name="me">"Moi"</string>
-    <string name="power_dialog">"Options du téléphone"</string>
+    <string name="power_dialog">"Device Options"</string>
     <string name="silent_mode">"Mode silencieux"</string>
     <string name="turn_on_radio">"Activer le mode sans fil"</string>
     <string name="turn_off_radio">"Désactiver le mode sans fil"</string>
     <string name="screen_lock">"Verrouillage de l\'écran"</string>
     <string name="power_off">"Éteindre"</string>
     <string name="shutdown_progress">"Arrêt en cours..."</string>
-    <string name="shutdown_confirm">"Votre téléphone va s\'éteindre."</string>
+    <string name="shutdown_confirm">"Votre dispositif va stopper."</string>
     <string name="no_recent_tasks">"Aucune application récente"</string>
-    <string name="global_actions">"Options du téléphone"</string>
+    <string name="global_actions">"Device Options"</string>
     <string name="global_action_lock">"Verrouillage de l\'écran"</string>
     <string name="global_action_power_off">"Éteindre"</string>
     <string name="global_action_toggle_silent_mode">"Mode silencieux"</string>
@@ -390,7 +390,7 @@
     <string name="keyguard_password_wrong_pin_code">"Le code PIN est incorrect !"</string>
     <string name="keyguard_label_text">"Pour débloquer le clavier, appuyez sur \"Menu\" puis sur 0."</string>
     <string name="emergency_call_dialog_number_for_display">"Numéro d\'urgence"</string>
-    <string name="lockscreen_carrier_default">"(Aucun service)"</string>
+    <string name="lockscreen_carrier_default">"    "</string>
     <string name="lockscreen_screen_locked">"Écran verrouillé"</string>
     <string name="lockscreen_instructions_when_pattern_enabled">"Appuyez sur \"Menu\" pour débloquer le téléphone ou appeler un numéro d\'urgence"</string>
     <string name="lockscreen_instructions_when_pattern_disabled">"Appuyez sur \"Menu\" pour déverrouiller le téléphone."</string>
@@ -584,7 +584,7 @@
     <string name="wait">"Attendre"</string>
     <string name="debug">"Débogage"</string>
     <string name="sendText">"Sélectionner une action pour le texte"</string>
-    <string name="volume_ringtone">"Volume de la sonnerie"</string>
+    <string name="volume_ringtone">"Volume"</string>
     <string name="volume_music">"Volume"</string>
     <string name="volume_music_hint_playing_through_bluetooth">"Lecture via Bluetooth"</string>
     <string name="volume_call">"Volume des appels entrants"</string>
@@ -618,7 +618,7 @@
     <string name="perms_show_all"><b>"Tout afficher"</b></string>
     <string name="googlewebcontenthelper_loading">"Chargement..."</string>
     <string name="usb_storage_title">"Connecté à l\'aide d\'un câble USB"</string>
-    <string name="usb_storage_message">"Vous avez connecté votre téléphone à votre ordinateur à l\'aide d\'un câble USB. Sélectionnez Monter pour copier des fichiers de votre ordinateur vers votre carte SD, ou inversement."</string>
+    <string name="usb_storage_message">"Vous avez connecté votre périphérique à votre ordinateur à l\'aide d\'un câble USB. Sélectionnez Monter pour copier des fichiers de votre ordinateur vers votre carte SD, ou inversement."</string>
     <string name="usb_storage_button_mount">"Monter"</string>
     <string name="usb_storage_button_unmount">"Ne pas monter"</string>
     <string name="usb_storage_error_message">"Un problème est survenu lors de l\'utilisation de votre carte SD en tant que périphérique de stockage USB."</string>
