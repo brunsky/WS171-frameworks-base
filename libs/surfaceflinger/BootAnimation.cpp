@@ -187,6 +187,7 @@ bool BootAnimation::threadLoop() {
 bool BootAnimation::android() {
     initTexture(&mAndroid[0], mAssets, "images/android-logo-mask.png");
     initTexture(&mAndroid[1], mAssets, "images/android-logo-shine.png");
+    initTexture(&mAndroid[2], mAssets, "images/camangi-logo.png");
 
     // clear screen
     glDisable(GL_DITHER);
@@ -194,21 +195,40 @@ bool BootAnimation::android() {
     glClear(GL_COLOR_BUFFER_BIT);
     eglSwapBuffers(mDisplay, mSurface);
 
-    const GLint xc = (mWidth  - mAndroid[0].w) / 2;
-    const GLint yc = (mHeight - mAndroid[0].h) / 2;
+    const GLint xc = 320 + (mWidth  - mAndroid[0].w) / 2;
+    const GLint yc = -220 + (mHeight - mAndroid[0].h) / 2;
     const Rect updateRect(xc, yc, xc + mAndroid[0].w, yc + mAndroid[0].h);
 
-    // draw and update only what we need
-    mNativeWindowSurface->setSwapRectangle(updateRect.left,
-            updateRect.top, updateRect.width(), updateRect.height());
+    const GLint x0 = (mWidth  - mAndroid[2].w) / 2;
+    const GLint y0 = (mHeight - mAndroid[2].h) / 2; 
 
+    LOGI("mWidth:%d, mHeight:%d\n", mWidth, mHeight);
+    LOGI("mAndroid[0].w:%d, mAndroid[0].h:%d, xc:%d, yc:%d\n", mAndroid[0].w, mAndroid[0].h, xc, yc);
+
+    // Draw Camangi logo
+    glEnable(GL_BLEND);
+    glBindTexture(GL_TEXTURE_2D, mAndroid[2].name);
+    glDrawTexiOES(x0, y0, 0, mAndroid[2].w, mAndroid[2].h);
+    eglSwapBuffers(mDisplay, mSurface);
+
+/*
     glEnable(GL_SCISSOR_TEST);
     glScissor(updateRect.left, mHeight - updateRect.bottom, updateRect.width(),
             updateRect.height());
+*/
+    glEnable(GL_SCISSOR_TEST);
+    glScissor(xc, yc, mAndroid[0].w, mAndroid[0].h);
 
     // Blend state
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     glTexEnvx(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_REPLACE);
+/*   
+    mNativeWindowSurface->setSwapRectangle(updateRect.left,
+            updateRect.top, updateRect.width(), updateRect.height());
+*/
+
+    // draw and update only what we need   
+    mNativeWindowSurface->setSwapRectangle(xc, 430, mAndroid[0].w, 50);
 
     const nsecs_t startTime = systemTime();
     do {
@@ -237,6 +257,7 @@ bool BootAnimation::android() {
 
     glDeleteTextures(1, &mAndroid[0].name);
     glDeleteTextures(1, &mAndroid[1].name);
+    glDeleteTextures(1, &mAndroid[2].name);
     return false;
 }
 
