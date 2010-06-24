@@ -69,6 +69,28 @@ static inline int max(int v1, int v2)
     return (v1 > v2) ? v1 : v2;
 }
 
+// ------------------
+
+static void create_flag()
+{
+    FILE *fp;
+    
+    fp = fopen("/tmp/keyboard", "w+");
+    if (fp == 0) {
+        LOGE("********* create_flag() error: %s", strerror(errno));
+        return;
+    }
+    LOGD("********* create_flag() ok");
+
+    fclose(fp);
+}
+
+static void del_flag()
+{
+    system("rm /tmp/keyboard");
+    LOGD("********* del_flag() ok");
+}
+
 EventHub::device_t::device_t(int32_t _id, const char* _path)
     : id(_id), path(_path), classes(0)
     , keyBitmask(NULL), layoutMap(new KeyLayoutMap()), next(NULL) {
@@ -435,6 +457,7 @@ bool EventHub::hasKeys(size_t numCodes, int32_t* keyCodes, uint8_t* outFlags) {
     return true;
 }
 
+
 // ----------------------------------------------------------------------------
 
 int EventHub::open_device(const char *deviceName)
@@ -623,6 +646,9 @@ int EventHub::open_device(const char *deviceName)
         char tmpfn[101];
         char keylayoutFilename[300];
 
+        // create file for telling Android we get USB keyboard
+        create_flag();
+
         // a more descriptive name
         ioctl(mFDs[mFDCount].fd, EVIOCGNAME(sizeof(devname)-1), devname);
         devname[sizeof(devname)-1] = 0;
@@ -717,6 +743,10 @@ int EventHub::close_device(const char *deviceName)
             } else {
                 publicID = device->id;
             }
+
+            del_flag();
+            LOGD("************ Close devices");
+
             // clear the property
             char propName[100];
             sprintf(propName, "hw.keyboards.%u.devname", publicID);

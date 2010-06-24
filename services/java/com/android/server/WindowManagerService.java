@@ -4915,21 +4915,27 @@ public class WindowManagerService extends IWindowManager.Stub implements Watchdo
                     int actions = mPolicy.interceptKeyTq(event, !screenIsOff);
                     
                     if ((actions & WindowManagerPolicy.ACTION_GO_TO_SLEEP) != 0) {
+                        Log.d(TAG, "******** ACTION_GO_TO_SLEEP");
                         mPowerManager.goToSleep(event.when);
+                        Log.d(TAG, "******** Come Back From PowerManager.goToSleep()");
                     }
 
                     if (screenIsOff) {
+                        Log.d(TAG, "******** screenIsOff == true");
                         event.flags |= WindowManagerPolicy.FLAG_WOKE_HERE;
                     }
                     if (screenIsDim) {
+                        Log.d(TAG, "******** screenIsDim == true");
                         event.flags |= WindowManagerPolicy.FLAG_BRIGHT_HERE;
                     }
                     if ((actions & WindowManagerPolicy.ACTION_POKE_USER_ACTIVITY) != 0) {
+                        Log.d(TAG, "******** ACTION_POKE_USER_ACTIVITY == true");
                         mPowerManager.userActivity(event.when, false,
                                 LocalPowerManager.BUTTON_EVENT);
                     }
                     
                     if ((actions & WindowManagerPolicy.ACTION_PASS_TO_USER) != 0) {
+                        Log.d(TAG, "******** ACTION_PASS_TO_USER == true");
                         if (event.value != 0 && mPolicy.isAppSwitchKeyTqTiLwLi(event.keycode)) {
                             filterQueue(this);
                             mKeyWaiter.appSwitchComing();
@@ -4946,13 +4952,15 @@ public class WindowManagerService extends IWindowManager.Stub implements Watchdo
                     if (screenIsOff) {
                         if (!mPolicy.isWakeRelMovementTq(event.deviceId,
                                 device.classes, event)) {
-                            //Log.i(TAG, "dropping because screenIsOff and !isWakeKey");
+                            Log.i(TAG, "dropping because screenIsOff and !isWakeKey");
                             return false;
                         }
                         event.flags |= WindowManagerPolicy.FLAG_WOKE_HERE;
+                        Log.d(TAG, "************************** Wakeup! RawInputEvent.EV_REL");
                     }
                     if (screenIsDim) {
                         event.flags |= WindowManagerPolicy.FLAG_BRIGHT_HERE;
+                        Log.d(TAG, "************************** Bright Up! RawInputEvent.EV_REL");
                     }
                     return true;
                 }
@@ -4967,9 +4975,11 @@ public class WindowManagerService extends IWindowManager.Stub implements Watchdo
                             return false;
                         }
                         event.flags |= WindowManagerPolicy.FLAG_WOKE_HERE;
+                        Log.d(TAG, "************************** Wakeup! RawInputEvent.EV_ABS");
                     }
                     if (screenIsDim) {
                         event.flags |= WindowManagerPolicy.FLAG_BRIGHT_HERE;
+                        Log.d(TAG, "************************** Bright Up! RawInputEvent.EV_ABS");
                     }
                     return true;
                 }

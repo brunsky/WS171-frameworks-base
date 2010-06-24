@@ -192,7 +192,7 @@ class PowerManagerService extends IPowerManager.Stub implements LocalPowerManage
     private int mTouchCycles;
 
     // could be either static or controllable at runtime
-    private static final boolean mSpew = false;
+    private static final boolean mSpew = true;
 
     /*
     static PrintStream mLog;
