@@ -646,8 +646,6 @@ int EventHub::open_device(const char *deviceName)
         char tmpfn[101];
         char keylayoutFilename[300];
 
-        // create file for telling Android we get USB keyboard
-        create_flag();
 
         // a more descriptive name
         ioctl(mFDs[mFDCount].fd, EVIOCGNAME(sizeof(devname)-1), devname);
@@ -679,6 +677,7 @@ int EventHub::open_device(const char *deviceName)
             // this device better not go away.
             mHaveFirstKeyboard = true;
             mFirstKeyboardId = device->id;
+
         } else {
             publicID = device->id;
             // ensure mFirstKeyboardId is set to -something-.
@@ -692,6 +691,11 @@ int EventHub::open_device(const char *deviceName)
 
         LOGI("New keyboard: publicID=%d device->id=%d devname='%s' propName='%s' keylayout='%s'\n",
                 publicID, device->id, devname, propName, keylayoutFilename);
+
+        
+        if (strcmp(devname, "pxa27x-keypad") && strcmp(devname, "gpio-keys"))
+            // create file for telling Android we get USB keyboard
+            create_flag();
     }
 
     LOGV("Adding device %s %p at %d, id = %d, classes = 0x%x\n",
